@@ -1,13 +1,13 @@
-# BipedRobotHardware: Sir Servington
+# BipedRobotHardware
 
-**Open hardware for a small, affordable 12-servo biped that learns to walk in simulation.**
+**Open hardware for a small 12-servo biped that learns to walk in simulation.**
 CAD, print files, bill of materials, power PCB, robot description (URDF) and build guide.
 
 <p align="center">
   <img src="media/robot.jpeg" alt="Sir Servington" width="35%"/>
 </p>
 
-<!-- TODO: replace with a hero GIF of Sir Servington walking (media/walking.gif) -->
+<!-- TODO: hero GIF of Sir Servington walking (media/walking.gif) -->
 
 | Software | |
 |---|---|
@@ -20,18 +20,16 @@ CAD, print files, bill of materials, power PCB, robot description (URDF) and bui
 
 | | |
 |---|---|
-| Height | TODO cm |
-| Weight | TODO kg measured (URDF model: 1.66 kg) |
+| Height | About 38 cm with the legs straight |
+| Mass | 1.66 kg in the CAD model |
 | Degrees of freedom | 12 (per leg: hip yaw, hip roll, hip pitch, knee, ankle roll, ankle pitch) |
-| Actuators | 12× Feetech STS3215 (12 V), one shared half-duplex bus at 1 Mbaud |
-| Compute | NVIDIA Jetson Orin Nano, 50 Hz control loop |
+| Actuators | 12× Waveshare ST3215 serial bus servos (12 V, 30 kg·cm), one shared bus at 1 Mbaud |
+| Compute | NVIDIA Jetson Orin Nano Super, 50 Hz control loop (a Raspberry Pi 5 also works, see [Cost](#cost)) |
 | IMU | BNO055 on I2C |
-| Servo interface | Waveshare Bus Servo Adapter (A) on the Jetson UART |
-| Power | Custom power distribution PCB ([electronics/power_pcb](electronics/power_pcb/)) |
-| Battery | TODO |
-| Runtime | TODO min |
-| Structure | 3D-printed, TODO material |
-| Cost | About $TODO in parts, prices checked TODO 2026 ([BOM](bom/bom.csv)) |
+| Power | 3S LiPo (11.1 V, 2200 mAh) through a custom power PCB |
+| Structure | 14 printed parts, PLA, printed on a stock Ender-3 V2 |
+| Fasteners | Only the screws that come with the servos |
+| Cost | Under $500 with a Raspberry Pi 5 (≈ $418 with the 2 GB model); ≈ $730 with the Jetson. Prices checked October 2026 |
 
 ---
 
@@ -39,33 +37,44 @@ CAD, print files, bill of materials, power PCB, robot description (URDF) and bui
 
 | I want to... | Go to |
 |---|---|
-| See what to buy and what it costs | [`bom/bom.csv`](bom/bom.csv), [`bom/printed_parts.csv`](bom/printed_parts.csv) |
-| Print the parts | [`print/`](print/) and [`print/print_settings.md`](print/print_settings.md) |
-| Modify the design | [`cad/step/`](cad/step/) (any CAD tool) or [`cad/fusion/`](cad/fusion/) (Fusion 360) |
-| Build it | [`docs/build/`](docs/build/) |
-| Order the power board | [`electronics/power_pcb/`](electronics/power_pcb/) |
+| See what to buy and what it costs | [`bom/`](bom/) |
+| Print the parts | [`print/`](print/) |
+| Modify the design | [`cad/`](cad/) (STEP for any CAD tool, Fusion 360 archive in the release) |
+| Order or build the power board | [`electronics/power_pcb/`](electronics/power_pcb/) |
 | Wire it | [`electronics/wiring/`](electronics/wiring/) |
+| Build it | [`docs/build/`](docs/build/) |
 | Simulate it | [`robot_description/`](robot_description/) (URDF + meshes) |
 
-Print files and gerbers are also attached to each [release](https://github.com/AsterisCrack/BipedRobotHardware/releases)
-as zips, so you can download them without cloning.
+The [latest release](https://github.com/AsterisCrack/BipedRobotHardware/releases/latest) has the STLs,
+the gerbers and the Fusion 360 archive as downloads, so you don't need to clone the repo.
 
 ---
 
 ## Cost
 
-<!-- TODO: fill from bom/bom.csv once prices are in. Keep the date: prices drift. -->
-
-| Category | Cost (USD) |
+| Part | Cost (USD) |
 |---|---|
-| Actuation (12× STS3215) | TODO |
-| Compute (Jetson Orin Nano) | TODO |
-| Sensing (BNO055) | TODO |
-| Power (PCB, battery, regulators) | TODO |
-| Electronics (servo adapter, cables) | TODO |
-| Fasteners | TODO |
-| Filament | TODO |
-| **Total** | **About $TODO** (prices checked TODO 2026) |
+| 12× Waveshare ST3215 servos | 263.88 |
+| BNO055 IMU | 17.00 |
+| Power PCB | 25.00 |
+| Waveshare Bus Servo Adapter (A) | 4.99 |
+| 3S 2200 mAh LiPo | 20.00 |
+| **Robot without a computer** | **330.87** |
+
+| With... | Total (USD) |
+|---|---|
+| Raspberry Pi 5, 2 GB + 12 V → 5 V USB-C step-down | **≈ 418** |
+| Raspberry Pi 5, 4 GB + 12 V → 5 V USB-C step-down | **≈ 451** |
+| NVIDIA Jetson Orin Nano Super (reference robot) | **≈ 730** |
+
+The policy is a small network that runs on the CPU, so a **Raspberry Pi 5 can replace the Jetson** and keeps the
+robot under $500. The Jetson costs $399 at NVIDIA's list price since July 2026 (it launched at $249). The
+reference robot runs on the Jetson; the Pi setup (power, wiring, two config changes) is in
+[`bom/README.md`](bom/README.md#raspberry-pi-instead-of-the-jetson) and hasn't been tested on the robot yet.
+
+Prices were checked in October 2026; details and links are in [`bom/`](bom/). Not in the prices: the microSD
+card, about 0.5 kg of PLA and small parts (wires, switch, leads, fuses). Tools: a 3D printer, a soldering
+iron and a LiPo balance charger.
 
 ---
 
@@ -73,20 +82,17 @@ as zips, so you can download them without cloning.
 
 ```
 cad/
-├── step/              Full assembly + one STEP per part (opens in any CAD tool)
-├── fusion/            Fusion 360 archive (.f3z)
-└── drawings/          PDFs: critical dimensions, bearing fits
-print/
-├── stl/               One print-oriented STL per part
-├── 3mf/               Plates with slicer settings
-└── print_settings.md  Material, layer height, infill, supports
+├── step/              Assembly (zipped) + one STEP per printed part
+└── fusion/            Fusion 360 archive (download from the release)
+print/stl/             One STL per printed part, with print notes in print/README.md
 robot_description/     URDF + meshes (ROS package "Robot_description")
 electronics/
-├── power_pcb/         Power distribution PCB: source, fabrication files, schematic
-└── wiring/            Wiring diagram, servo ID map, pinouts
+├── Schematic_RobotPCB.pdf
+├── power_pcb/         Power PCB: EasyEDA source, gerbers, BOM, pick-and-place, render
+└── wiring/            Servo ID map, Jetson pinout, IMU mounting
 bom/                   Purchased parts and printed parts (CSV)
-docs/build/            Step-by-step build guide
-media/                 Photos and GIFs
+docs/build/            Build guide
+media/                 Photos
 ```
 
 The software repos include this one as a git submodule (`robot_hardware/`), so the robot description

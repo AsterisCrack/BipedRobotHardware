@@ -1,13 +1,12 @@
 # Changelog
 
-## v2.0 (TODO date)
+## v2.0 (2026-10-30)
 
-Second version of the robot, the one the current policies are trained for and run on.
+First public release of Sir Servington, the robot the current policies in
+[BipedRobot](https://github.com/AsterisCrack/BipedRobot) are trained for and run on.
 
-- TODO: what changed from V1 (structure, servo layout, hip/ankle geometry, feet, electronics).
+- 12 Waveshare ST3215 servos, Jetson Orin Nano Super, BNO055 IMU, 3S LiPo.
 - Custom power distribution PCB, fabricated and assembled by PCBWay.
-- IMU link (`imu_link`) added to the URDF at the BNO055 mounting point.
+- URDF with an `imu_link` at the BNO055 mounting point.
 
-## v1
-
-- TODO: short description of the first version and why it was replaced.
+The model of the earlier V1 robot is still in BipedRobot (`--task BipedRobot`).

@@ -1,12 +1,10 @@
-file,qty,material,infill,supports,approx_print_time_h,approx_grams,notes
-torso.stl,1,TODO,TODO,TODO,,,Holds the Jetson; TODO: one or several parts?
-l_hip_upper.stl,1,TODO,TODO,TODO,,,Hip yaw to hip roll
-r_hip_upper.stl,1,TODO,TODO,TODO,,,Mirror of l_hip_upper
-hip_lower.stl,2,TODO,TODO,TODO,,,Same part on both sides? Same mass as the ankle link in the URDF: confirm
-l_thigh.stl,1,TODO,TODO,TODO,,,
-r_thigh.stl,1,TODO,TODO,TODO,,,
-l_calf.stl,1,TODO,TODO,TODO,,,
-r_calf.stl,1,TODO,TODO,TODO,,,
-ankle.stl,2,TODO,TODO,TODO,,,Ankle roll to ankle pitch; confirm whether identical to hip_lower
-l_foot.stl,1,TODO,TODO,TODO,,,
-r_foot.stl,1,TODO,TODO,TODO,,,
+file,qty,material,notes
+body.stl,1,PLA,Torso
+IMU_tray.stl,1,PLA,Holds the BNO055
+ankle_and_hip.stl,4,PLA,Same part for the lower hip and the ankle (2 per leg). Most delicate part on falls: print tilted 45° with at least 6 walls
+thigh.stl,2,PLA,Same part on both legs
+calf.stl,2,PLA,Same part on both legs
+left_upper_hip.stl,1,PLA,
+right_upper_hip.stl,1,PLA,
+left_foot.stl,1,PLA,
+right_foot.stl,1,PLA,

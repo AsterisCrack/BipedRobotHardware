@@ -23,14 +23,10 @@ New STS3215s all ship as ID 1, so they cannot share the bus until each has its o
 | 5 | `l_ankle_roll_joint` | 11 | `r_ankle_roll_joint` |
 | 6 | `l_ankle_pitch_joint` | 12 | `r_ankle_pitch_joint` |
 
-![TODO: labelled servos](img/02_labelled_servos.jpg)
-
 ## 2. Centre before mounting the horn
 
-TODO: centre each servo (encoder 2048) with torque on, then fit the horn in the orientation shown, so every
-joint has its full range on both sides.
-
-![TODO: horn orientation per joint](img/02_horn_orientation.jpg)
+Before fitting a horn, centre the servo (position 2048, the middle of its 0-4095 range) so that the joint
+has travel on both sides. The calibration in step 3 takes care of the exact offset.
 
 ## 3. Calibrate (after assembly)
 

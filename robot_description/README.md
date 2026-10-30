@@ -38,7 +38,8 @@ Frame: X forward, Y left, Z up. 12 revolute joints plus a fixed `imu_joint` at t
 | foot ×2 | 0.097 |
 | **Total** | **1.661** |
 
-TODO: weigh the real parts and update these masses if they differ. The simulator's dynamics depend on them.
+These masses come from the CAD model's materials. If you change the design or the material, weigh the parts
+and update them: the simulator's dynamics depend on them.
 
 ## Changing the description
 

@@ -3,9 +3,13 @@
 The runtime is [BipedRobotJetson](https://github.com/AsterisCrack/BipedRobotJetson); its README has the full
 details. This page is the order to do things in on a new robot.
 
-## 1. Flash and set up the Jetson
+These steps are for the Jetson the reference robot uses. For a Raspberry Pi 5, see
+[Raspberry Pi instead of the Jetson](../../bom/README.md#raspberry-pi-instead-of-the-jetson).
 
-TODO: JetPack version, flashing method.
+## 1. Set up the Jetson
+
+Flash JetPack onto the microSD card following NVIDIA's
+[Jetson Orin Nano Developer Kit getting-started guide](https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit).
 
 ## 2. Install the runtime
 
@@ -33,5 +37,3 @@ Hang the robot (or hold it) with the feet off the ground for every first test.
 1. Robot hanging, torque on, Home → `stand`. Check every joint goes where the 3D view says.
 2. Lower it to the ground with a hand on it, and let it stand.
 3. Only then deploy a policy (BipedRobotJetson README, "Deploying a policy").
-
-TODO: photo or GIF of the first stand.

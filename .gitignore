@@ -24,3 +24,8 @@ _autosave-*
 # Editors
 .vscode/
 .idea/
+
+# Over GitHub's 100 MB limit: attached to the GitHub release instead.
+# The assembly is committed zipped as cad/step/robot_assembly.zip.
+cad/step/robot_assembly.step
+cad/fusion/*.f3z

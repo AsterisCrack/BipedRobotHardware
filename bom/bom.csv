@@ -1,19 +1,7 @@
 category,part,spec,qty,unit_price_usd,total_usd,supplier_link,alt_link,notes
-actuation,Feetech STS3215 servo,12 V version; magnetic encoder; serial bus (SCS),12,,,TODO,,Check the 12 V variant: the servo model is identified at 12 V
-actuation,Servo horns + horn screws,Included with STS3215,12,,,,,Usually included; list here if bought separately
-compute,NVIDIA Jetson Orin Nano Developer Kit,TODO (8 GB / Super),1,,,TODO,,Likely the biggest single cost
-compute,microSD card or NVMe SSD,TODO GB,1,,,TODO,,
-sensing,BNO055 IMU breakout,I2C address 0x28,1,,,TODO,,TODO: which breakout (Adafruit or other)
-electronics,Waveshare Bus Servo Adapter (A),UART to half-duplex servo bus,1,,,https://www.waveshare.com/wiki/Bus_Servo_Adapter_(A),,Wired straight through (TX to TX)
-electronics,Power distribution PCB,See electronics/power_pcb,1,,,https://www.pcbway.com/,,Sponsored by PCBWay
-electronics,Servo bus cables,TODO length,12,,,TODO,,
-electronics,Jumper wires (Jetson header),Female-female,TODO,,,TODO,,UART + I2C + power
-power,Battery,TODO (chemistry / cells / capacity),1,,,TODO,,
-power,Battery connector,TODO (XT30 / XT60),1,,,TODO,,
-power,Power switch,TODO,1,,,TODO,,
-fasteners,Screws,M2 x TODO mm,TODO,,,TODO,,TODO: one row per size and length with count
-fasteners,Screws,M3 x TODO mm,TODO,,,TODO,,
-fasteners,Nuts / heat-set inserts,TODO,TODO,,,TODO,,
-fasteners,Bearings,TODO,TODO,,,TODO,,
-misc,Filament,TODO material,TODO kg,,,TODO,,Total from printed_parts.csv
-misc,Foot pads,TODO,2,,,TODO,,
+actuation,Waveshare ST3215 serial bus servo,12 V / 30 kg·cm (SKU 22414),12,21.99,263.88,https://www.waveshare.com/st3215-servo.htm,https://www.robotshop.com/products/waveshare-30kg-serial-bus-servo-high-precision-torque-w-360-deg-encoder,Get the 12 V version. The screws that come with the servos are all the screws the build needs. Price: top of Waveshare's $16.99-21.99 range
+compute,NVIDIA Jetson Orin Nano Super Developer Kit,8 GB,1,399.00,399.00,https://www.sparkfun.com/nvidia-jetson-orin-nano-developer-kit.html,,Biggest single cost (NVIDIA list price since July 2026). Cheaper alternative: Raspberry Pi 5 + 12 V to 5 V USB-C step-down; see bom/README.md
+sensing,BNO055 IMU breakout,GY-BNO055 or similar; I2C,1,17.00,17.00,,,Some cheap boards are fakes without a Bosch chip: buy from a seller with reviews
+electronics,Power distribution PCB,55 x 50 mm; 2 layers,1,25.00,25.00,https://www.pcbway.com/,,Bare boards + about $4 of LCSC parts + shipping; see electronics/power_pcb (estimate)
+electronics,Waveshare Bus Servo Adapter (A),UART to serial bus servos,1,4.99,4.99,https://www.waveshare.com/wiki/Bus_Servo_Adapter_(A),,Wired straight through to the computer's UART (TX to TX)
+power,LiPo battery,3S1P 11.1 V 2200 mAh with XT60,1,20.00,20.00,,,

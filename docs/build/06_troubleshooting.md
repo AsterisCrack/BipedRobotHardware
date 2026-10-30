@@ -9,5 +9,3 @@
 | Robot leans or the policy behaves oddly | `default_position_deg` wrong for some joint, or a horn reseated without recalibrating | Recalibrate (step 02) |
 | IMU tilt has the wrong sign | IMU mounted differently from the reference build | See [IMU mounting](../../electronics/wiring/README.md#imu-mounting) |
 | BNO055 not at 0x28 | ADDR pin high, or wiring | Check `i2cdetect -y 7`; ADDR low gives 0x28 |
-
-TODO: add what you hit during your own build.

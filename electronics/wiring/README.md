@@ -1,12 +1,13 @@
 # Wiring
 
-<!-- TODO: add wiring_diagram.png (and .pdf) here and embed it: battery → PCB → servos / Jetson, UART, I2C. -->
+A full wiring diagram is coming soon. Until then, this page has everything needed to wire the robot.
 
 ## Overview
 
 ```
-Battery ──► Power PCB ──► 12 V servo bus (12× STS3215, daisy-chained)
-                     └──► Jetson Orin Nano supply
+3S LiPo (XT60) ──► Power PCB ──┬──► SERVOS terminal ──► servo bus power (12× ST3215, daisy-chained)
+                    (fused,    └──► JETSON terminal ──► Jetson Orin Nano DC jack
+                     switched by a power switch on the SWITCH terminal)
 Jetson UART (pins 8/10) ──► Waveshare Bus Servo Adapter (A) ──► servo bus data line
 Jetson I2C bus 7 (pins 3/5) ──► BNO055 IMU (address 0x28)
 ```
@@ -43,8 +44,8 @@ No joint uses ID 1, the factory default, so a servo that still answers on ID 1 i
 | 6 | GND | Waveshare adapter GND |
 | 3 | I2C bus 7 SDA | BNO055 SDA |
 | 5 | I2C bus 7 SCL | BNO055 SCL |
-| TODO | 3.3 V | BNO055 VIN |
-| TODO | GND | BNO055 GND |
+| 1 (any 3.3 V pin) | 3.3 V | BNO055 VIN |
+| 9 (any GND pin) | GND | BNO055 GND |
 
 The Waveshare adapter is wired **straight through** (TX to TX, RX to RX), not crossed like most UARTs.
 Crossing them gives complete silence on the bus. The header UART is disabled on a fresh Jetson image; enable
@@ -57,8 +58,14 @@ The BNO055 is mounted rotated **180° about the body X axis** (forward) relative
 gyro. If you mount it the other way up, change `_MOUNT_FLIP_YZ` in BipedRobotJetson's
 `hardware/imu/bno055.py` to `+1.0` and re-check with the self-test.
 
-TODO: photo of the IMU mount with the chip axes marked; BNO055 breakout used (Adafruit or other).
+## Power PCB connectors
 
-## Connectors
+| Connector | Type | Goes to |
+|---|---|---|
+| BATTERY | XT60 | 3S LiPo |
+| WALL_DC | DC barrel jack | 12 V wall adapter (optional, for bench work) |
+| SWITCH | 2-pin 5.0 mm screw terminal | Power switch, in series: turns both outputs on and off |
+| SERVOS | 2-pin 5.0 mm screw terminal | Servo bus power |
+| JETSON | 2-pin 5.0 mm screw terminal | Jetson DC jack (barrel lead) |
 
-TODO: connector types and pinouts on the PCB, servo cable lengths per joint, battery connector.
+Details in [`../power_pcb/`](../power_pcb/).
