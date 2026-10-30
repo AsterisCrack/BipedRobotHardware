@@ -1,0 +1,19 @@
+category,part,spec,qty,unit_price_usd,total_usd,supplier_link,alt_link,notes
+actuation,Feetech STS3215 servo,12 V version; magnetic encoder; serial bus (SCS),12,,,TODO,,Check the 12 V variant: the servo model is identified at 12 V
+actuation,Servo horns + horn screws,Included with STS3215,12,,,,,Usually included; list here if bought separately
+compute,NVIDIA Jetson Orin Nano Developer Kit,TODO (8 GB / Super),1,,,TODO,,Likely the biggest single cost
+compute,microSD card or NVMe SSD,TODO GB,1,,,TODO,,
+sensing,BNO055 IMU breakout,I2C address 0x28,1,,,TODO,,TODO: which breakout (Adafruit or other)
+electronics,Waveshare Bus Servo Adapter (A),UART to half-duplex servo bus,1,,,https://www.waveshare.com/wiki/Bus_Servo_Adapter_(A),,Wired straight through (TX to TX)
+electronics,Power distribution PCB,See electronics/power_pcb,1,,,https://www.pcbway.com/,,Sponsored by PCBWay
+electronics,Servo bus cables,TODO length,12,,,TODO,,
+electronics,Jumper wires (Jetson header),Female-female,TODO,,,TODO,,UART + I2C + power
+power,Battery,TODO (chemistry / cells / capacity),1,,,TODO,,
+power,Battery connector,TODO (XT30 / XT60),1,,,TODO,,
+power,Power switch,TODO,1,,,TODO,,
+fasteners,Screws,M2 x TODO mm,TODO,,,TODO,,TODO: one row per size and length with count
+fasteners,Screws,M3 x TODO mm,TODO,,,TODO,,
+fasteners,Nuts / heat-set inserts,TODO,TODO,,,TODO,,
+fasteners,Bearings,TODO,TODO,,,TODO,,
+misc,Filament,TODO material,TODO kg,,,TODO,,Total from printed_parts.csv
+misc,Foot pads,TODO,2,,,TODO,,

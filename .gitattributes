@@ -1,0 +1,23 @@
+# CAD, print and fabrication files: never diff or convert line endings
+*.step binary
+*.stp binary
+*.STEP binary
+*.stl binary
+*.STL binary
+*.3mf binary
+*.f3z binary
+*.f3d binary
+*.pdf binary
+*.zip binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+
+# Robot description: LF everywhere so the URDF diffs cleanly across OSes
+*.urdf text eol=lf
+*.xacro text eol=lf
+*.trans text eol=lf
+*.gazebo text eol=lf
+*.csv text eol=lf
+*.md text eol=lf

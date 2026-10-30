@@ -1,0 +1,12 @@
+file,qty,material,infill,supports,approx_print_time_h,approx_grams,notes
+torso.stl,1,TODO,TODO,TODO,,,Holds the Jetson; TODO: one or several parts?
+l_hip_upper.stl,1,TODO,TODO,TODO,,,Hip yaw to hip roll
+r_hip_upper.stl,1,TODO,TODO,TODO,,,Mirror of l_hip_upper
+hip_lower.stl,2,TODO,TODO,TODO,,,Same part on both sides? Same mass as the ankle link in the URDF: confirm
+l_thigh.stl,1,TODO,TODO,TODO,,,
+r_thigh.stl,1,TODO,TODO,TODO,,,
+l_calf.stl,1,TODO,TODO,TODO,,,
+r_calf.stl,1,TODO,TODO,TODO,,,
+ankle.stl,2,TODO,TODO,TODO,,,Ankle roll to ankle pitch; confirm whether identical to hip_lower
+l_foot.stl,1,TODO,TODO,TODO,,,
+r_foot.stl,1,TODO,TODO,TODO,,,
